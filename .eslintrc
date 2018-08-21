@@ -1,0 +1,14 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "commonjs": true
+  },
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "rules": {
+    "linebreak-style": 0,
+    "react/jsx-filename-extension": 0,
+    "react/jsx-indent": 0
+  }
+}
