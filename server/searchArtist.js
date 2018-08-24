@@ -1,4 +1,4 @@
-const fetch = require('node-fetch');
+const fetch = require('isomorphic-unfetch');
 const grabToken = require('./utils/grabToken');
 
 module.exports = (req, res) => {

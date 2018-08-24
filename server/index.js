@@ -16,7 +16,7 @@ app
     server.get('/api/artist/:artist', searchArtist);
     server.get('*', (req, res) => handle(req, res));
 
-    server.listen(3023, (err) => {
+    server.listen(3000, (err) => {
       if (err) throw err;
       console.log('> Ready on http://localhost:3000');
     });

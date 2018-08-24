@@ -4,8 +4,9 @@ import fetch from 'isomorphic-unfetch';
 import Layout from '../components/layouts';
 
 class Index extends PureComponent {
-  static getInitialProps = async () => {
-    const res = await fetch('http://localhost:3023/api/artist/drake');
+  static getInitialProps = async ({ req }) => {
+    const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
+    const res = await fetch(`${baseUrl}/api/artist/drake`);
     const json = await res.json();
 
     return {
@@ -14,13 +15,15 @@ class Index extends PureComponent {
   }
 
   static propTypes = {
-    artist: {
+    artist: PropTypes.shape({
       name: PropTypes.string,
-    },
+    }),
   };
 
   static defaultProps = {
-    artist: {},
+    artist: {
+      name: 'Artist Name',
+    },
   }
 
   render() {
@@ -28,10 +31,7 @@ class Index extends PureComponent {
 
     return (
       <Layout>
-        <h1>Content</h1>
-        <p>
-          {artist.name}
-        </p>
+        <h1>{artist.name}</h1>
       </Layout>
     );
   }

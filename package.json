@@ -8,9 +8,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node server/index.js",
-    "build": "next build frontend",
-    "start": "cross-env NODE_ENV=production node server.js",
-    "analyze": "cross-env ANALYZE=1 next build frontend"
+    "build": "next build client",
+    "start": "cross-env NODE_ENV=production node server/index.js",
+    "analyze": "cross-env ANALYZE=1 next build client"
   },
   "dependencies": {
     "isomorphic-unfetch": "^2.1.1",
@@ -32,7 +32,6 @@
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "7.4.0",
     "express": "^4.15.2",
-    "node-fetch": "^2.2.0",
     "webpack-bundle-analyzer": "^2.8.3"
   }
 }
