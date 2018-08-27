@@ -2,9 +2,8 @@ require('dotenv').config();
 const btoa = require('btoa');
 const fetch = require('node-fetch');
 
-const client = process.env.SPOTIFY_CLIENT;
-const secret = process.env.SPOTIFY_SECRET;
-const base64Encoded = btoa(`${client}:${secret}`);
+const { SPOTIFY_CLIENT, SPOTIFY_SECRET } = process.env;
+const base64Encoded = btoa(`${SPOTIFY_CLIENT}:${SPOTIFY_SECRET}`);
 
 function fetchToken() {
   const options = {

@@ -3,14 +3,16 @@ import PropTypes from 'prop-types';
 import fetch from 'isomorphic-unfetch';
 import Layout from '../components/layouts';
 
+// Use Fragments rather than writing big query.
+
 class Index extends PureComponent {
   static getInitialProps = async ({ req }) => {
     const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
-    const res = await fetch(`${baseUrl}/api/artist/drake`);
-    const json = await res.json();
+    const res = await fetch(`${baseUrl}/api/artist/a`);
+    const { items } = await res.json();
 
     return {
-      artist: json.items[0],
+      artist: items[0],
     };
   }
 
