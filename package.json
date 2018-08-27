@@ -13,17 +13,18 @@
     "analyze": "cross-env ANALYZE=1 next build client"
   },
   "dependencies": {
-    "apollo-server": "^2.0.5",
-    "apollo-server-express": "^2.0.4",
-    "express-graphql": "^0.6.12",
+    "apollo-boost": "^0.1.15",
     "graphql": "^0.13.2",
     "isomorphic-unfetch": "^2.1.1",
-    "next": "^4.2.0",
+    "next": "^6.1.1",
     "prop-types": "^15.6.2",
     "react": "^16.2.0",
+    "react-apollo": "^2.1.11",
     "react-dom": "^16.2.0"
   },
   "devDependencies": {
+    "apollo-server": "^2.0.5",
+    "apollo-server-express": "^2.0.4",
     "babel-eslint": "^8.2.6",
     "btoa": "^1.2.1",
     "compression": "^1.7.3",
@@ -36,6 +37,7 @@
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "7.4.0",
     "express": "^4.15.2",
+    "express-graphql": "^0.6.12",
     "webpack-bundle-analyzer": "^2.8.3"
   }
 }

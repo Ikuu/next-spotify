@@ -20,16 +20,22 @@ app
   .then(() => {
     const server = express();
 
-    apolloServer.applyMiddleware({ app: server, path: '/apollo' });
     server.use(compression());
-    server.use(
-      '/graphql',
-      graphqlHTTP({
-        schema,
-        graphiql: true,
-      }),
-    );
+    // server.use(
+    //   '/graphql',
+    //   graphqlHTTP({
+    //     schema,
+    //     graphiql: true,
+    //   }),
+    // );
     server.get('/api/artist/:artist', searchArtist);
+    server.get('/:artist', (req, res) => {
+      const actualPage = '/index';
+      const queryParams = { artist: req.params.artist };
+
+      app.render(req, res, actualPage, queryParams);
+    });
+    apolloServer.applyMiddleware({ app: server, path: '/graphql/apollo' });
     server.get('*', (req, res) => handle(req, res));
 
     server.listen(3000, (err) => {

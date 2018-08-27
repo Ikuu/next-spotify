@@ -1,39 +1,31 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import fetch from 'isomorphic-unfetch';
 import Layout from '../components/layouts';
+import Artist from '../components/artist';
 
-// Use Fragments rather than writing big query.
-
-class Index extends PureComponent {
-  static getInitialProps = async ({ req }) => {
-    const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
-    const res = await fetch(`${baseUrl}/api/artist/a`);
-    const { items } = await res.json();
+class Index extends React.Component {
+  static getInitialProps = (ctx) => {
+    const { artist } = ctx.query;
 
     return {
-      artist: items[0],
+      artist,
     };
-  }
+  };
 
   static propTypes = {
-    artist: PropTypes.shape({
-      name: PropTypes.string,
-    }),
+    artist: PropTypes.string.isRequired,
   };
 
   static defaultProps = {
-    artist: {
-      name: 'Artist Name',
-    },
-  }
+    artist: 'asap',
+  };
 
   render() {
     const { artist } = this.props;
 
     return (
       <Layout>
-        <h1>{artist.name}</h1>
+        <Artist artist={artist} />
       </Layout>
     );
   }
