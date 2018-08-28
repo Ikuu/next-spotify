@@ -3,8 +3,6 @@ import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import PropTypes from 'prop-types';
 
-// Use Fragments rather than writing big query.
-
 const query = gql`
   query artistSearch($artist: String!, $limit: Int) {
     artistSearch(artist: $artist, limit: $limit) {
@@ -25,7 +23,16 @@ function Artist({ data: { artistSearch } }) {
   );
 }
 
-// export default Artist;
+Artist.propTypes = {
+  data: PropTypes.shape({
+    artistSearch: PropTypes.shape({
+      items: PropTypes.arrayOf(PropTypes.shape({
+        name: PropTypes.string,
+      })).isRequired,
+    }).isRequired,
+  }).isRequired,
+};
+
 export default graphql(query, {
   options: ({ artist }) => ({
     variables: {

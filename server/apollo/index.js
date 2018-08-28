@@ -1,6 +1,5 @@
 const { gql } = require('apollo-server-express');
-const grabToken = require('../utils/grabToken');
-const { API_URL } = require('../config');
+const { artistSearch, related } = require('./resolvers');
 
 const typeDefs = gql`
   type Query {
@@ -31,26 +30,10 @@ const typeDefs = gql`
 
 const resolvers = {
   Query: {
-    artistSearch: (obj, { artist, limit }) =>
-      grabToken().then(token =>
-        fetch(`${API_URL}/search?q=${artist}&type=artist&limit=${limit || 5}`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        })
-          .then(response => response.json())
-          .then(json => json.artists)),
+    artistSearch,
   },
   Artist: {
-    related: ({ id }) =>
-      grabToken().then(token =>
-        fetch(`${API_URL}/artists/${id}/related-artists`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        })
-          .then(response => response.json())
-          .then(json => json.artists)),
+    related,
   },
 };
 
