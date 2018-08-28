@@ -4,8 +4,8 @@ import Layout from '../components/layouts';
 import Artist from '../components/artist';
 
 class Index extends React.Component {
-  static getInitialProps = (ctx) => {
-    const { artist } = ctx.query;
+  static getInitialProps = ({ query }) => {
+    const { artist } = query;
 
     return {
       artist,
@@ -13,7 +13,7 @@ class Index extends React.Component {
   };
 
   static propTypes = {
-    artist: PropTypes.string.isRequired,
+    artist: PropTypes.string,
   };
 
   static defaultProps = {

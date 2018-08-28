@@ -27,12 +27,10 @@ function Artist({ data: { artistSearch } }) {
 
 // export default Artist;
 export default graphql(query, {
-  options: ({ artist }) => {
-    return {
-      variables: {
-        artist,
-        limit: 2,
-      },
-    };
-  },
+  options: ({ artist }) => ({
+    variables: {
+      artist,
+      limit: 1,
+    },
+  }),
 })(Artist);

@@ -2,7 +2,7 @@ const { gql } = require('apollo-server-express');
 const grabToken = require('../utils/grabToken');
 const { API_URL } = require('../config');
 
-exports.typeDefs = gql`
+const typeDefs = gql`
   type Query {
     artistSearch(artist: String!, limit: Int): ArtistSearchResult
   }
@@ -29,7 +29,7 @@ exports.typeDefs = gql`
   }
 `;
 
-exports.resolvers = {
+const resolvers = {
   Query: {
     artistSearch: (obj, { artist, limit }) =>
       grabToken().then(token =>
@@ -52,4 +52,9 @@ exports.resolvers = {
           .then(response => response.json())
           .then(json => json.artists)),
   },
+};
+
+module.exports = {
+  typeDefs,
+  resolvers,
 };
