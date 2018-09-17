@@ -10,10 +10,12 @@
     "dev": "node server/index.js",
     "build": "next build client",
     "start": "cross-env NODE_ENV=production node server/index.js",
-    "analyze": "cross-env ANALYZE=1 next build client"
+    "analyze": "cross-env ANALYZE=1 next build client",
+    "deploy": "now rm next-spotify && now --public && now alias"
   },
   "dependencies": {
     "apollo-boost": "^0.1.15",
+    "cors": "^2.8.4",
     "graphql": "^0.13.2",
     "isomorphic-unfetch": "^2.1.1",
     "next": "^6.1.1",

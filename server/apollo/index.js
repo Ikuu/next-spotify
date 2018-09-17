@@ -1,21 +1,61 @@
 const { gql } = require('apollo-server-express');
-const { artistSearch, related } = require('./resolvers');
+const {
+  albums, artistsSearch, related, tracks,
+} = require('./resolvers');
 
 const typeDefs = gql`
   type Query {
-    artistSearch(artist: String!, limit: Int): ArtistSearchResult
+    artists(artist: String!, limit: Int, country: String): ArtistSearchResult
+  }
+
+  type SimplifiedAlbum {
+    artists: [SimplifiedArtist]
+    name: String
   }
 
   type Artist {
     name: String
     href: String
     followers: Followers
+    genres: [String]
+    id: String
+    images: [Image]
+    popularity: Int
     related: [Artist]
+    uri: String
+    tracks: [Track]
+    type: String
+    albums: [SimplifiedAlbum]
+  }
+
+  type SimplifiedArtist {
+    href: String
+    id: String
+    name: String
+    type: String
+    uri: String
   }
 
   type Followers {
     href: String
     total: Int
+  }
+
+  type Image {
+    height: Int
+    url: String
+    width: Int
+  }
+
+  type Track {
+    album: [SimplifiedAlbum]
+    artists: [SimplifiedArtist]
+    available_markets: [String]
+    disc_number: Int
+    duration_ms: Int
+    id: String
+    name: String
+    preview_url: String
   }
 
   type ArtistSearchResult {
@@ -30,10 +70,12 @@ const typeDefs = gql`
 
 const resolvers = {
   Query: {
-    artistSearch,
+    artists: artistsSearch,
   },
   Artist: {
+    albums,
     related,
+    tracks,
   },
 };
 

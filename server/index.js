@@ -4,11 +4,15 @@ const express = require('express');
 const next = require('next');
 const searchArtist = require('./rest/searchArtist');
 const apolloSettings = require('./apollo');
+const cors = require('cors');
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dir: './client', dev });
 const handle = app.getRequestHandler();
-const apolloServer = new ApolloServer(apolloSettings);
+const apolloServer = new ApolloServer({
+  ...apolloSettings,
+  introspection: true,
+});
 
 app
   .prepare()
@@ -16,6 +20,7 @@ app
     const server = express();
 
     server.use(compression());
+    server.use(cors({}));
     server.get('/api/artist/:artist', searchArtist);
     server.get('/artist/:artist', (req, res) => {
       const actualPage = '/index';
