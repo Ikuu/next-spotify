@@ -18,7 +18,7 @@
     "cors": "^2.8.4",
     "graphql": "^0.13.2",
     "isomorphic-unfetch": "^2.1.1",
-    "next": "^6.1.1",
+    "next": "7",
     "prop-types": "^15.6.2",
     "react": "^16.2.0",
     "react-apollo": "^2.1.11",

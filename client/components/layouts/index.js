@@ -25,6 +25,7 @@ function Layout({ children }) {
         <meta name="description" content="Next.js Spotify App" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#191414" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </NextHead>
 
       {children}
