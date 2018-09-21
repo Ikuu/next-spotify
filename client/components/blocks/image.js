@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 export default class Image extends PureComponent {
   static propTypes = {
     alt: PropTypes.string.isRequired,
-    bgColor: PropTypes.string.isRequired,
+    bgColor: PropTypes.string,
     naturalHeight: PropTypes.number.isRequired,
     naturalWidth: PropTypes.number.isRequired,
     src: PropTypes.string.isRequired,
@@ -12,7 +12,7 @@ export default class Image extends PureComponent {
 
   render() {
     const {
-      alt, bgColor, naturalHeight, naturalWidth, src,
+      alt, bgColor = '#ccc', naturalHeight, naturalWidth, src,
     } = this.props;
     const containerStyle = {
       backgroundColor: bgColor,

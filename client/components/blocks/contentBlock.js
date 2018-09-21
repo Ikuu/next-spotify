@@ -5,7 +5,7 @@ export default class Block extends PureComponent {
   static propTypes = {
     children: PropTypes.node,
     heading: PropTypes.node.isRequired,
-    media: PropTypes.node.isRequired,
+    media: PropTypes.node,
   };
 
   render() {

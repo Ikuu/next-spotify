@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 export default class YoutubeVideo extends PureComponent {
   static propTypes = {
     id: PropTypes.string.isRequired,
-    naturalHeight: PropTypes.number.isRequired,
-    naturalWidth: PropTypes.number.isRequired,
+    naturalHeight: PropTypes.number,
+    naturalWidth: PropTypes.number,
     title: PropTypes.string.isRequired,
   };
 

@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button renders 1`] = `
+<button
+  aria-label="Text"
+  disabled={false}
+  onClick={[Function]}
+  style={
+    Object {
+      "backgroundColor": "white",
+      "color": "black",
+      "cursor": "pointer",
+    }
+  }
+  type="button"
+>
+  Text
+</button>
+`;
+
+exports[`Button renders with aria-label 1`] = `
+<button
+  aria-label="Different text"
+  disabled={false}
+  onClick={[Function]}
+  style={
+    Object {
+      "backgroundColor": "white",
+      "color": "black",
+      "cursor": "pointer",
+    }
+  }
+  type="button"
+>
+  Text
+</button>
+`;

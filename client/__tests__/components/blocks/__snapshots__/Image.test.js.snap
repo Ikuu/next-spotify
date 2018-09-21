@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Image renders 1`] = `
+<div
+  style={
+    Object {
+      "backgroundColor": "#ccc",
+      "paddingBottom": "56.25%",
+      "position": "relative",
+    }
+  }
+>
+  <img
+    alt="Alt"
+    src="www.test.com"
+    style={
+      Object {
+        "left": "50%",
+        "position": "absolute",
+        "top": "50%",
+        "transform": "translate(-50%, -50%)",
+        "width": "100%",
+      }
+    }
+  />
+</div>
+`;

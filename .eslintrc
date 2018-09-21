@@ -2,10 +2,12 @@
   "env": {
     "browser": true,
     "es6": true,
-    "commonjs": true
+    "commonjs": true,
+    "jest/globals": true
   },
   "extends": "airbnb",
   "parser": "babel-eslint",
+  "plugins": ["jest"],
   "rules": {
     "import/no-extraneous-dependencies": 0,
     "linebreak-style": 0,

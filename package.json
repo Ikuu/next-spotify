@@ -6,7 +6,8 @@
   "author": "Alexander Anderson <revolution6000@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "cross-env NODE_ENV=test jest",
+    "test:watch": "cross-env NODE_ENV=test jest --watch",
     "dev": "cross-env NODE_ENV=dev node server/index.js",
     "build": "next build client",
     "start": "cross-env NODE_ENV=production node server/index.js",
@@ -21,23 +22,34 @@
     "prop-types": "^15.6.2",
     "react": "^16.2.0",
     "react-apollo": "^2.1.11",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "react-test-renderer": "^16.5.2"
   },
   "devDependencies": {
     "apollo-server": "^2.0.5",
     "apollo-server-express": "^2.0.4",
+    "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.6",
+    "babel-jest": "^23.6.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
     "btoa": "^1.2.1",
     "compression": "^1.7.3",
     "cross-env": "^5.0.1",
     "dotenv": "^6.0.0",
+    "enzyme": "^3.6.0",
+    "enzyme-adapter-react-16": "^1.5.0",
     "eslint": "^5.4.0",
     "eslint-config-airbnb": "16.1.0",
     "eslint-import-resolver-babel-module": "^2.0.1",
     "eslint-plugin-import": "2.7.0",
+    "eslint-plugin-jest": "^21.22.1",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "7.4.0",
     "express": "^4.15.2",
+    "jest": "^23.6.0",
+    "react-addons-test-utils": "^15.6.2",
     "webpack-bundle-analyzer": "^2.8.3"
   }
 }

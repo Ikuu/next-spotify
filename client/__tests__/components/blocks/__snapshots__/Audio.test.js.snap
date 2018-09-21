@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Audio renders 1`] = `
+<audio
+  controls={true}
+>
+  <source
+    src="www.mock.com"
+    type="audio/mp3"
+  />
+  Your browser does not support the Audio element.
+</audio>
+`;

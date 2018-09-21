@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`H1 Renders 1`] = `
+<h1>
+  Sample Text
+</h1>
+`;
+
+exports[`H2 Renders 1`] = `
+<h2>
+  Sample Text
+</h2>
+`;

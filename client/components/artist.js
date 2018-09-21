@@ -41,12 +41,12 @@ function Artist({ data: { artists } }) {
       <Mask height={320} width={320}>
         <Image
           alt={name}
-          bgColor="#ccc"
           naturalHeight={images[0].height}
           naturalWidth={images[0].width}
           src={images[0].url}
         />
       </Mask>
+
       <Heading level={2}>Top Tracks</Heading>
       <ul>
         {tracks.map(t => (
@@ -56,6 +56,7 @@ function Artist({ data: { artists } }) {
           </li>
         ))}
       </ul>
+
       <Heading level={2}>Related</Heading>
       <ul>
         {related.map(r => (

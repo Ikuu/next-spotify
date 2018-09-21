@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Figure doesnt renders 1`] = `null`;
+
+exports[`Figure renders 1`] = `
+<figure>
+  <img
+    alt="alt"
+    src="www.test.com"
+  />
+  <figcaption>
+    Test
+  </figcaption>
+</figure>
+`;
