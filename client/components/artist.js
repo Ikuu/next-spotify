@@ -3,7 +3,7 @@ import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-import { Heading, Image, Mask } from './blocks';
+import { Audio, Heading, Image, Mask } from './blocks';
 
 const query = gql`
   query artistSearch($artist: String!, $limit: Int) {
@@ -19,6 +19,11 @@ const query = gql`
           id
           name
         }
+        tracks {
+          id
+          name
+          preview_url
+        }
       }
     }
   }
@@ -26,7 +31,9 @@ const query = gql`
 
 function Artist({ data: { artists } }) {
   const artist = artists.items[0];
-  const { name, related, images } = artist;
+  const {
+    name, related, images, tracks,
+  } = artist;
 
   return (
     <div>
@@ -40,7 +47,16 @@ function Artist({ data: { artists } }) {
           src={images[0].url}
         />
       </Mask>
-      <Heading level="2">Related</Heading>
+      <Heading level={2}>Top Tracks</Heading>
+      <ul>
+        {tracks.map(t => (
+          <li key={t.id}>
+            {t.name}
+            {t.preview_url !== null ? <Audio src={t.preview_url} /> : ''}
+          </li>
+        ))}
+      </ul>
+      <Heading level={2}>Related</Heading>
       <ul>
         {related.map(r => (
           <li key={r.id}>

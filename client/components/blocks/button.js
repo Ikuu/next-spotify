@@ -1,6 +1,16 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 
 export default class Button extends PureComponent {
+  static propTypes = {
+    ariaLabel: PropTypes.string,
+    color: PropTypes.string,
+    disabled: PropTypes.bool,
+    onClick: PropTypes.func,
+    text: PropTypes.string.isRequired,
+    type: PropTypes.string,
+  };
+
   render() {
     const {
       ariaLabel,
@@ -8,7 +18,7 @@ export default class Button extends PureComponent {
       disabled = false,
       onClick,
       text,
-      type = 'button'
+      type = 'button',
     } = this.props;
     const textColor = {
       black: 'white',
@@ -31,6 +41,6 @@ export default class Button extends PureComponent {
       >
         {text}
       </button>
-    )
+    );
   }
-};
+}

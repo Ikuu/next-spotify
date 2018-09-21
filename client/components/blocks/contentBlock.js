@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 export default class Block extends PureComponent {
   static propTypes = {
+    children: PropTypes.node,
     heading: PropTypes.node.isRequired,
     media: PropTypes.node.isRequired,
   };
@@ -16,6 +17,6 @@ export default class Block extends PureComponent {
         {media}
         {children}
       </div>
-    )
+    );
   }
 }

@@ -1,3 +1,4 @@
+export { default as Audio } from './audio';
 export { default as Image } from './image';
 export { default as Mask } from './mask';
 export { default as Figure } from './figure';

@@ -16,12 +16,8 @@ class Index extends React.Component {
     artist: PropTypes.string,
   };
 
-  static defaultProps = {
-    artist: 'asap',
-  };
-
   render() {
-    const { artist } = this.props;
+    const { artist = 'asap' } = this.props;
 
     return (
       <Layout>

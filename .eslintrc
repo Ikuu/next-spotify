@@ -10,6 +10,12 @@
     "import/no-extraneous-dependencies": 0,
     "linebreak-style": 0,
     "react/jsx-filename-extension": 0,
-    "react/jsx-indent": 0
+    "react/jsx-indent": 0,
+    "react/require-default-props": 0,
+    "jsx-a11y/anchor-is-valid": [ "error", {
+      "components": [ "Link" ],
+      "specialLink": [ "hrefLeft", "hrefRight" ],
+      "aspects": [ "invalidHref", "preferButton" ]
+    }]
   }
 }

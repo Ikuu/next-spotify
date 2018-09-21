@@ -1,6 +1,13 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 
 export default class Mask extends PureComponent {
+  static propTypes = {
+    children: PropTypes.node.isRequired,
+    height: PropTypes.number,
+    width: PropTypes.number,
+  };
+
   render() {
     const {
       children,

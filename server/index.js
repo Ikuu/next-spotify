@@ -3,15 +3,11 @@ const compression = require('compression');
 const express = require('express');
 const next = require('next');
 const apolloSettings = require('./apollo');
-const cors = require('cors');
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dir: './client', dev });
 const handle = app.getRequestHandler();
-const apolloServer = new ApolloServer({
-  ...apolloSettings,
-  introspection: true,
-});
+const apolloServer = new ApolloServer(apolloSettings);
 
 app
   .prepare()
@@ -19,7 +15,6 @@ app
     const server = express();
 
     server.use(compression());
-    server.use(cors({}));
     server.get('/artist/:artist', (req, res) => {
       const actualPage = '/index';
       const queryParams = { artist: req.params.artist };

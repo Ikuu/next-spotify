@@ -1,18 +1,12 @@
 const grabToken = require('../utils/grabToken');
-const { API_URL } = require('../config');
-
-const setHeaders = token => ({
-  headers: {
-    Authorization: `Bearer ${token}`,
-  },
-});
+const { API_URL, setHeaders } = require('../config');
 
 const artistById = (obj, { id }) =>
   grabToken().then(token =>
     fetch(`${API_URL}/artists/${id}`, setHeaders(token))
       .then(response => response.json()));
 
-const artistsSearch = (obj, { artist, limit }) =>
+const artists = (obj, { artist, limit }) =>
   grabToken().then(token =>
     fetch(`${API_URL}/search?q=${artist}&type=artist&limit=${limit || 5}`, setHeaders(token))
       .then(response => response.json())
@@ -39,7 +33,7 @@ const tracks = ({ id, country }) =>
 module.exports = {
   albums,
   artistById,
-  artistsSearch,
+  artists,
   related,
   tracks,
 };

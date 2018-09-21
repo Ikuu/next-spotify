@@ -1,11 +1,24 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default function Heading(props) {
-  const { level, children } = props;
+const propTypes = {
+  level: PropTypes.number,
+  children: PropTypes.string.isRequired,
+};
+
+function Heading(props) {
+  const {
+    level = 1,
+    children,
+  } = props;
 
   return React.createElement(
-    `h${level || 1}`,
+    `h${level}`,
     null,
     children,
   );
-};
+}
+
+Heading.propTypes = propTypes;
+
+export default Heading;
