@@ -1,11 +1,12 @@
 const { gql } = require('apollo-server-express');
 const {
-  albums, artistsSearch, related, tracks,
+  albums, artistById, artistsSearch, related, tracks,
 } = require('./resolvers');
 
 const typeDefs = gql`
   type Query {
     artists(artist: String!, limit: Int, country: String): ArtistSearchResult
+    artistById(id: String!): Artist
   }
 
   type SimplifiedAlbum {
@@ -71,6 +72,7 @@ const typeDefs = gql`
 const resolvers = {
   Query: {
     artists: artistsSearch,
+    artistById,
   },
   Artist: {
     albums,

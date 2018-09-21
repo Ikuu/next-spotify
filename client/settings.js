@@ -1,5 +1,5 @@
-const HOST_DEV = 'https://www.ikuu.net';
-const HOST_PROD = 'http://localhost:3000';
+const HOST_PROD = 'https://www.ikuu.net';
+const HOST_DEV = 'http://localhost:3000';
 
 export {
   HOST_DEV,

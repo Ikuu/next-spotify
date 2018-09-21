@@ -7,6 +7,11 @@ const setHeaders = token => ({
   },
 });
 
+const artistById = (obj, { id }) =>
+  grabToken().then(token =>
+    fetch(`${API_URL}/artists/${id}`, setHeaders(token))
+      .then(response => response.json()));
+
 const artistsSearch = (obj, { artist, limit }) =>
   grabToken().then(token =>
     fetch(`${API_URL}/search?q=${artist}&type=artist&limit=${limit || 5}`, setHeaders(token))
@@ -33,6 +38,7 @@ const tracks = ({ id, country }) =>
 
 module.exports = {
   albums,
+  artistById,
   artistsSearch,
   related,
   tracks,

@@ -2,7 +2,6 @@ const { ApolloServer } = require('apollo-server-express');
 const compression = require('compression');
 const express = require('express');
 const next = require('next');
-const searchArtist = require('./rest/searchArtist');
 const apolloSettings = require('./apollo');
 const cors = require('cors');
 
@@ -21,7 +20,6 @@ app
 
     server.use(compression());
     server.use(cors({}));
-    server.get('/api/artist/:artist', searchArtist);
     server.get('/artist/:artist', (req, res) => {
       const actualPage = '/index';
       const queryParams = { artist: req.params.artist };

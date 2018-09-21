@@ -21,10 +21,10 @@ export default class Image extends PureComponent {
     };
     const imgStyle = {
       position: 'absolute',
-      width: '100%',
       left: '50%',
       top: '50%',
       transform: 'translate(-50%, -50%)',
+      width: '100%',
     };
 
     return (

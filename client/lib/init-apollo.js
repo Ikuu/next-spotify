@@ -10,9 +10,9 @@ if (!process.browser) {
 }
 
 const host = () => {
-  const onProduction = process.env.NODE_ENV === 'production';
-  if (onProduction) return HOST_PROD;
-  return HOST_DEV;
+  const dev = process.env.NODE_ENV !== 'production';
+  if (dev) return HOST_DEV;
+  return HOST_PROD;
 };
 
 function create(initialState) {
